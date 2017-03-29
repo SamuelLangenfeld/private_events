@@ -1,0 +1,26 @@
+Ok, so event manager
+
+We have- users, events, invitations
+
+Users-
+  new, show, create
+
+  has many attended_events through invitations
+  has many invitations
+  has many events (as host)
+
+  columns: events_attended, name, email
+
+
+Events-
+  new, show, create, index, delete?
+  belongs_to creator(reference to user)
+  has_many attendees(through invitations)
+  has_many events
+
+
+Invitations
+  belongs to user
+  belongs to event
+
+  

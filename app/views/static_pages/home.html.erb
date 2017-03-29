@@ -1,0 +1,14 @@
+<h1>Private Events</h1>
+
+<p>This app lets users create events. The creator can also invite other users to their events. I built this app to reinforce what I learned about associations in Ruby on Rails.</p>
+
+
+<% unless logged_in? %>
+<div>
+<%= link_to "Sign in", signin_path %></div>
+<div>
+<%= link_to "Sign up", new_user_path %></div>
+
+<% else %>
+<%= link_to "My page", user_path(@current_user) %></div>
+<% end %>

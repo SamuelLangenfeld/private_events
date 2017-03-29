@@ -1,0 +1,16 @@
+<h1>Sign in</h1>
+
+
+<%= form_for(:session, url: '/signin') do |f| %>
+	<%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.submit "Submit" %>
+
+
+<% end %>
+
+<div style="margin-top:33px">
+<%= link_to 'Home', root_path %>
+
+</div>
