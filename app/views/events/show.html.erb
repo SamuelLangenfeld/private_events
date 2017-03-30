@@ -12,17 +12,12 @@
 
 <p>
   <strong>Event date:</strong>
-  <%= @event.event_date %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.date_and_time %>
 </p>
 
 <p>
   <strong>Host:</strong>
-  <%= @event.host_id %>
+  <%= @event.host.name %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
