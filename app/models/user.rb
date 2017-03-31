@@ -1,11 +1,12 @@
 class User < ApplicationRecord
-	before_create :create_remember_token
 	attr_accessor :remember_token
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :name, presence: true, length: {maximum: 50}
 	validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 	before_save :downcase_email
-	has_many :events, :foreign_key => :host_id, dependent: :destroy
+	has_many :hosted_events, :class_name => "Event", :foreign_key => :host_id, dependent: :destroy
+	has_many :attended_events, :class_name=> "Event", :through=> :invitations, source: :event
+	has_many :invitations, :foreign_key => :attendee_id, dependent: :destroy
 
 
 	def User.new_token
@@ -36,10 +37,6 @@ class User < ApplicationRecord
 	private
 		def downcase_email
 			self.email.downcase!
-		end
-
-		def create_remember_token
-
 		end
 
 
