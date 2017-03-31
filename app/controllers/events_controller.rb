@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @upcoming = Event.upcoming_events
+    @past = Event.past_events
   end
 
   # GET /events/1
@@ -25,7 +26,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = current_user.events.build(event_params)
+    @event = current_user.hosted_events.build(event_params)
 
     respond_to do |format|
       if @event.save

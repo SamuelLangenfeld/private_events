@@ -28,6 +28,12 @@ class User < ApplicationRecord
 		BCrypt::Password.create(string, cost: cost)
 	end
 
+	def upcoming_events
+	end
+
+	def past_events
+	end
+
 
 
 

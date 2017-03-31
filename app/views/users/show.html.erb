@@ -12,7 +12,23 @@
 
 <p>
   <strong>Hosted Events:</strong>
-  <% @events.each do |event| %>
+  <% @hosted_events.each do |event| %>
+  <%= event.title %>
+  <%= event.description %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Upcoming Events:</strong>
+  <% @upcoming_events.each do |event| %>
+  <%= event.title %>
+  <%= event.description %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Past Events:</strong>
+  <% @past_events.each do |event| %>
   <%= event.title %>
   <%= event.description %>
   <% end %>

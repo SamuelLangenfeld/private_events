@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @events=current_user.events
+    @hosted_events=current_user.hosted_events
+    @upcoming_events=current_user.attended_events.upcoming_events
+    @past_events=current_user.attended_events.past_events
+
   end
 
   # GET /users/new

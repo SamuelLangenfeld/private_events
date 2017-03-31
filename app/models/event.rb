@@ -4,5 +4,9 @@ class Event < ApplicationRecord
 	has_many :attendees, class_name: 'User', :through=> :invitations
 	validates :title, presence: true, length: {maximum: 50}
 	validates :description, presence: true
+	validates :location, presence: true
+
+	scope :past_events, ->{where("date_and_time< ?", Time.zone.now)}
+	scope :upcoming_events, ->{where("date_and_time >?", Time.zone.now)}
 
 end

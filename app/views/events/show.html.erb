@@ -20,5 +20,18 @@
   <%= @event.host.name %>
 </p>
 
+<p>
+  <strong>Attendees:</strong>
+  <ul>
+  <% @event.attendees.each do |attendee| %>
+  <li><%=attendee.name %></li>
+  <% end %>
+</p>
+
+<% if current_user.hosted_events.include? @event %>
+<% end %>
+
+
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
