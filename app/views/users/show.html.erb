@@ -1,41 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Hosted Events:</strong>
-  <% @hosted_events.each do |event| %>
-  <%= event.title %>
-  <%= event.description %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Upcoming Events:</strong>
-  <% @upcoming_events.each do |event| %>
-  <%= event.title %>
-  <%= event.description %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Past Events:</strong>
-  <% @past_events.each do |event| %>
-  <%= event.title %>
-  <%= event.description %>
-  <% end %>
-</p>
 
 
+  <p id="notice"><%= notice %></p>
 
-<%= link_to 'Home', root_path %> |
-<%= link_to 'Log Out', logout_path, method: 'delete' %>
-<%= link_to 'Create New Event', new_event_path %>
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>Hosted Events:</strong>
+    <% @hosted_events.each do |event| %>
+    <%= event.title %>
+    <%= event.description %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Upcoming Events:</strong>
+    <% @upcoming_events.each do |event| %>
+    <%= event.title %>
+    <%= event.description %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Past Events:</strong>
+    <% @past_events.each do |event| %>
+    <%= event.title %>
+    <%= event.description %>
+    <% end %>
+  </p>
+
+  <%= link_to 'Create New Event', new_event_path %>
