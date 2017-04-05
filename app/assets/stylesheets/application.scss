@@ -40,12 +40,17 @@ body{
 
       color:white;
       }
+      a:hover{
+        text-decoration:none;
+        background-color:#000;
+  }
+      
     }
   }
 
   a:hover{
     text-decoration:none;
-    background-color:black;
+    background-color:#000;
   }
 }
 
