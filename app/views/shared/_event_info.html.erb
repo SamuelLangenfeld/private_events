@@ -1,0 +1,25 @@
+<!--This will be a partial for a list of events. It will show up in the events index page, and a user's show page.
+I'm going to want a table.
+
+-->
+
+<% @user ||= current_user %>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <% @partial_events.each do |event| %>
+    <tr>
+      <td><%= link_to event.title, event %></td>
+      <td><%= event.location %></td>
+      <td><%= event.date_and_time %></td>
+      <td></td>
+    </tr>
+  <% end %>
+
+</table>

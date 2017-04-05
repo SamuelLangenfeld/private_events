@@ -14,10 +14,18 @@
 
   <p>
     <strong>Hosted Events:</strong>
-    <% @hosted_events.each do |event| %>
-    <%= event.title %>
-    <%= event.description %>
-    <% end %>
+    <% @partial_events= @hosted_events %>
+    <%= render 'shared/event_info' %>
+  </p>
+    <p>
+    <strong>Upcoming Events:</strong>
+    <% @partial_events= @upcoming_events %>
+    <%= render 'shared/event_info' %>
+  </p>
+    <p>
+    <strong>Hosted Events:</strong>
+    <% @partial_events= @past_events %>
+    <%= render 'shared/event_info' %>
   </p>
 
   <p>

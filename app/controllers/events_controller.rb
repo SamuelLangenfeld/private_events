@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   # GET /events
@@ -71,6 +72,14 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :date_and_time, :host_id)
+      params.require(:event).permit(:title, :description, :location, :date_and_time, :host_id)
     end
+
+    def correct_user
+      set_event
+      unless current_user.id==@event.host_id
+        redirect_to root_url 
+      end
+    end
+
 end
