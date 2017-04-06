@@ -16,6 +16,7 @@ module ApplicationHelper
 				@current_user=user
 			end
 		end
+		@current_user
 	end
 
 
@@ -48,6 +49,16 @@ module ApplicationHelper
 	def redirect_back_or(default)
 		redirect_to(session[:forwarding_url] || default)
 		session[:forwarding_url].delete
+	end
+
+	def full_title(extra_title="")
+		default_title="Private Events"
+		if extra_title.blank?
+			title= default_title
+		else
+			title= default_title+" | "+extra_title
+		end
+
 	end
 
 
