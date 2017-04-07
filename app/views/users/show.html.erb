@@ -13,35 +13,26 @@
   </p>
 
   <p>
-    <strong>Hosted Events:</strong>
-    <% @partial_events= @hosted_events %>
+    <strong>Upcoming Hosted Events:</strong>
+    <% @partial_events= @hosted_upcoming_events %>
     <%= render 'shared/event_info' %>
   </p>
-    <p>
+  <p>
+    <strong>Past Hosted Events:</strong>
+    <% @partial_events= @hosted_past_events %>
+    <%= render 'shared/event_info' %>
+  </p>
+  <p>
     <strong>Upcoming Events:</strong>
     <% @partial_events= @upcoming_events %>
     <%= render 'shared/event_info' %>
   </p>
-    <p>
-    <strong>Hosted Events:</strong>
+  <p>
+    <strong>Past Events:</strong>
     <% @partial_events= @past_events %>
     <%= render 'shared/event_info' %>
   </p>
 
-  <p>
-    <strong>Upcoming Events:</strong>
-    <% @upcoming_events.each do |event| %>
-    <%= event.title %>
-    <%= event.description %>
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Past Events:</strong>
-    <% @past_events.each do |event| %>
-    <%= event.title %>
-    <%= event.description %>
-    <% end %>
-  </p>
+  
 
   <%= link_to 'Create New Event', new_event_path %>

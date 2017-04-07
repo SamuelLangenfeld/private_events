@@ -13,13 +13,15 @@ I'm going to want a table.
       <th>Time</th>
     </tr>
   </thead>
-  <% @partial_events.each do |event| %>
-    <tr>
-      <td><%= link_to event.title, event %></td>
-      <td><%= event.location %></td>
-      <td><%= event.date_and_time %></td>
-      <td></td>
-    </tr>
+  <% if @partial_events %>
+    <% @partial_events.each do |event| %>
+      <tr>
+        <td><%= link_to event.title, event %></td>
+        <td><%= event.location %></td>
+        <td><%= event.date_and_time %></td>
+        <td></td>
+      </tr>
+    <% end %>
   <% end %>
 
 </table>

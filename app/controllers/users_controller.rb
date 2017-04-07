@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @hosted_events=current_user.hosted_events
+    @hosted_upcoming_events=current_user.hosted_events.upcoming_events
+    @hosted_past_events=current_user.hosted_events.past_events
     @upcoming_events=current_user.attended_events.upcoming_events
     @past_events=current_user.attended_events.past_events
 

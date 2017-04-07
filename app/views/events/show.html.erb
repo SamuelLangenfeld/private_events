@@ -26,11 +26,13 @@
   <% @event.attendees.each do |attendee| %>
   <li><%=attendee.name %></li>
   <% end %>
+  </ul>
 </p>
 
 
 <% if logged_in? %>
   <% if current_user.hosted_events.include? @event %>
+    <%= link_to 'Send Invitation', '#' %> | 
     <%= link_to 'Edit', edit_event_path(@event) %> |
 
   <% end %>
@@ -38,4 +40,4 @@
 
 
 
-<%= link_to 'Back', events_path %>
+<%= link_to 'All Events', events_path %>
