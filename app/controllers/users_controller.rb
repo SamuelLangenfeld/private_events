@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     @hosted_past_events=current_user.hosted_events.past_events
     @upcoming_events=current_user.attended_events.upcoming_events
     @past_events=current_user.attended_events.past_events
+    @pending_invites= current_user.invitations.select {|invite| invite.accepted==false}
+    @pending_events=[]
+    @pending_invites.each do |invite|
+      @pending_events<<Event.find(invite.event_id)
+    end
 
   end
 

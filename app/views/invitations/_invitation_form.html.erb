@@ -1,0 +1,8 @@
+<% if current_user.hosted_events.include? @event %>
+   <%= form_for @invitation do |f| %>
+    <%= f.label :attendee_name, 'Name: ' %>
+    <%= f.text_field :attendee_name %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.submit "Create" %>
+  <% end %>
+<% end %>

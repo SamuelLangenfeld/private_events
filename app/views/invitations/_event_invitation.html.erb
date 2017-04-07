@@ -1,0 +1,27 @@
+<% @user ||= current_user %>
+<table class="table table-striped table-bordered info-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>RSVP</th>
+    </tr>
+  </thead>
+  <% if @partial_invites %>
+    <% @partial_invites.each do |invite| %>
+      <tr>
+        <td><%= link_to "#{Event.find(invite.event_id).title}", {controller: "events", action: "show", id: invite.event_id} %></td>
+        <td><%= 'placeholder' %></td>
+        <td>
+          <%= form_for invite, url:'/accept' do |f|%>
+          <%= f.submit "Yes"%>
+          <% end %>
+          <%= form_for invite, method: :delete do |f|%>
+          <%= hidden_field :id, invite.id %>
+          <%= f.submit "No" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

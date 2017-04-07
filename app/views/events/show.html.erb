@@ -31,13 +31,13 @@
 
 
 <% if logged_in? %>
-  <% if current_user.hosted_events.include? @event %>
-    <%= link_to 'Send Invitation', '#' %> | 
-    <%= link_to 'Edit', edit_event_path(@event) %> |
+  
+  <%= render 'invitations/invitation_form'%>
+  
+  <div>
+  <%= link_to 'Edit', edit_event_path(@event) %> | <%= link_to 'All Events', events_path %>
+  </div>
 
-  <% end %>
+<% else %>
+  <%= link_to 'All Events', events_path %>
 <% end %>
-
-
-
-<%= link_to 'All Events', events_path %>

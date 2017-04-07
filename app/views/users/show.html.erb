@@ -12,6 +12,13 @@
     <%= @user.email %>
   </p>
 
+  <div>
+    <strong>My Pending Invitations:</strong>
+    <% @partial_invites= @pending_invites %>
+    <% @partial_events= @pending_events %>
+    <%=render 'invitations/event_invitation' %>
+  </div>
+
   <p>
     <strong>Upcoming Hosted Events:</strong>
     <% @partial_events= @hosted_upcoming_events %>
@@ -23,15 +30,17 @@
     <%= render 'shared/event_info' %>
   </p>
   <p>
-    <strong>Upcoming Events:</strong>
+    <strong>I Am Attending:</strong>
     <% @partial_events= @upcoming_events %>
     <%= render 'shared/event_info' %>
   </p>
   <p>
-    <strong>Past Events:</strong>
+    <strong>I Have Attended:</strong>
     <% @partial_events= @past_events %>
     <%= render 'shared/event_info' %>
   </p>
+
+ 
 
   
 
