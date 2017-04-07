@@ -77,8 +77,12 @@ class EventsController < ApplicationController
 
     def correct_user
       set_event
-      unless current_user.id==@event.host_id
-        redirect_to root_url 
+      if logged_in?
+        unless current_user.id==@event.host_id
+          redirect_to root_url 
+        end
+      else
+        redirect_to root_url
       end
     end
 

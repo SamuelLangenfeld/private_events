@@ -28,10 +28,14 @@
   <% end %>
 </p>
 
-<% if current_user.hosted_events.include? @event %>
+
+<% if logged_in? %>
+  <% if current_user.hosted_events.include? @event %>
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+
+  <% end %>
 <% end %>
 
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
