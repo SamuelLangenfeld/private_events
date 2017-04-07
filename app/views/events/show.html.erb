@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% flash.each do |k, v| %>
+  <%= content_tag :p, v, class: "#{k}" %>
+<% end %>
 
 <p>
   <strong>Title:</strong>
@@ -24,10 +26,13 @@
   <strong>Attendees:</strong>
   <ul>
   <% @event.attendees.each do |attendee| %>
-  <li><%=attendee.name %></li>
+    <li><%=attendee.name %></li>
   <% end %>
   </ul>
 </p>
+
+<p>
+
 
 
 <% if logged_in? %>

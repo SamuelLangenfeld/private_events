@@ -14,10 +14,12 @@
         <td><%= 'placeholder' %></td>
         <td>
           <%= form_for invite, url:'/accept' do |f|%>
+          <%= f.hidden_field :id %>
           <%= f.submit "Yes"%>
           <% end %>
+
           <%= form_for invite, method: :delete do |f|%>
-          <%= hidden_field :id, invite.id %>
+          <%= f.hidden_field :id %>
           <%= f.submit "No" %>
           <% end %>
         </td>

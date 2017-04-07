@@ -5,7 +5,7 @@ class User < ApplicationRecord
 	validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 	before_save :downcase_email
 	has_many :hosted_events, :class_name => "Event", :foreign_key => :host_id, dependent: :destroy
-	has_many :attended_events, :class_name=> "Event", :through=> :invitations, source: :event
+	has_many :attended_events, ->{where invitations:{accepted:true}}, :class_name=> "Event", :through=> :invitations, source: :event
 	has_many :invitations, :foreign_key => :attendee_id, dependent: :destroy
 
 
