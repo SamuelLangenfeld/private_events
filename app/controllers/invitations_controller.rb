@@ -3,13 +3,17 @@ class InvitationsController < ApplicationController
 
   def create
     @invitation=Invitation.new
-    @invitation.attendee_id= User.find_by_name(params[:invitation][:attendee_name]).id
+    begin 
+      @invitation.attendee_id= User.find_by_name(params[:invitation][:attendee_name]).id
+    rescue NoMethodError
+      flash[:error] = "Could not find user. Check to make sure you have the right name"
+    end
     @invitation.event_id= Event.find(params[:invitation][:event_id]).id
     @invitation.accepted= false
     if @invitation.save
       flash[:notice] = "Invitation created"
     else
-      flash[:error] = "Error. Invitation could not be created."
+      flash[:error] ||= "Error. Invitation could not be created."
     end
     redirect_to :back
   end

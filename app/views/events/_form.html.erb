@@ -27,9 +27,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :date_and_time %>
-    <%= f.datetime_field :date_and_time %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
   </div>
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_field :time %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit %>

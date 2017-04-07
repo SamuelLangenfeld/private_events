@@ -10,6 +10,10 @@
 
   <body>
     <div class="container">
+      <% flash.each do |k, v| %>
+        <%= content_tag :p, v, class: "#{k}" %>
+      <% end %>
+
       <%= render 'layouts/header' %>
       <%= yield %>
     </div>

@@ -21,11 +21,13 @@ event1= Event.new()
 event1.title= "Graduation Party"
 event1.location= "Bob's place"
 event1.description= "Bob is graduating"
-event1.date_and_time= Time.zone.now()
+event1.date= Date.today
+event1.time= "12:00"
 event1.host_id=user1.id
 event1.save
 
 invite=Invitation.new()
-invite.attendee_id=user2.id
-invite.event_id=event1.id
+invite.attendee_id = user2.id
+invite.event_id = event1.id
+invite.accepted = true
 invite.save
